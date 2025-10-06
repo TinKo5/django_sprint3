@@ -21,7 +21,8 @@ def index(request):
 def post_detail(request, id):
     template = 'blog/detail.html'
     post = get_object_or_404(Post, pk=id)
-    if post.pub_date > timezone.now() or not post.is_published or not post.category.is_published:  # Не разобрался, как перенести эту строку.
+    if (post.pub_date > timezone.now() or not
+            post.is_published or not post.category.is_published):
         raise Http404("Публикация не найдена")
     context = {
         'post': post
