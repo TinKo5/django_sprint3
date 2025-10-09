@@ -9,4 +9,3 @@ class PostManager(models.Manager):
             is_published=True,
             category__is_published=True
         ).order_by('-pub_date')
-
