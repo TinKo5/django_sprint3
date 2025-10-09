@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from core.models import PublishedModel
+from .managers import PostManager
 
 User = get_user_model()
 
@@ -74,6 +75,7 @@ class Post(PublishedModel):
         verbose_name='Категория',
         related_name='posts'
     )
+    objects = PostManager()
 
     class Meta:
         verbose_name = 'публикация'
